@@ -47,7 +47,7 @@ public class MessagesDAO implements MessagesInterface {
 						rs.getInt("board_id"),
 						rs.getInt("user_id"));
 				msgList.add(createMessage);
-				return new ResponseDTO(200, "Posted new message", true, msgList);
+				return new ResponseDTO(201, "Posted new message", true, msgList);
 			}
 
 		} catch (SQLException e) {

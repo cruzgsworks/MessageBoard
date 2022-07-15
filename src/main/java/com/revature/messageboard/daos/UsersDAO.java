@@ -78,7 +78,7 @@ public class UsersDAO implements UsersDAOInterface {
 							ArrayList<Users> insertedUsers = new ArrayList<Users>();
 							insertedUsers.add(newUser);
 
-							return new ResponseDTO(200, "Created new superadmin.", true, insertedUsers);
+							return new ResponseDTO(201, "Created new superadmin.", true, insertedUsers);
 						}
 					} else {
 						return new ResponseDTO(409, "Username already exists.", false, null);
@@ -143,7 +143,7 @@ public class UsersDAO implements UsersDAOInterface {
 						ArrayList<Users> insertedUsers = new ArrayList<Users>();
 						insertedUsers.add(newUser);
 
-						return new ResponseDTO(200, "Created new user.", true, insertedUsers);
+						return new ResponseDTO(201, "Created new user.", true, insertedUsers);
 					}
 				} else {
 					return new ResponseDTO(409, "Username already exists.", false, null);

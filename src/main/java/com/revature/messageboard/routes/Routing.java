@@ -16,7 +16,6 @@ import com.revature.messageboard.dtos.ResponseDTO;
 import com.revature.messageboard.models.Roles;
 
 import io.javalin.Javalin;
-import io.javalin.http.staticfiles.Location;
 
 public class Routing {
 
@@ -27,7 +26,8 @@ public class Routing {
 		// Instance of Javalin
 		this.app = Javalin.create(config -> {
 			config.enableCorsForAllOrigins();
-			config.addStaticFiles("/public", Location.CLASSPATH);
+			// config.registerPlugin(new RouteOverviewPlugin("/routes"));
+			// config.addStaticFiles("/public", Location.CLASSPATH);
 			config.accessManager((handler, ctx, routeRoles) -> {
 				Roles role = new AuthDAO().checkAuthToken(ctx);
 				System.out.println("Given role = " + role.name());
@@ -46,6 +46,9 @@ public class Routing {
 		}).start(8080);
 
 		this.app.routes(() -> {
+//			path("/", () -> {
+//				get(Path.Web.INDEX, new ViewsController().serveIndexPage, Roles.CURRENT_USER);
+//			});
 			path("/api/superadmin", () -> {
 				// For initial setup on demo. This handler should not exist
 				post(new UsersController().createSuperAdmin, Roles.ANYONE);
@@ -103,8 +106,7 @@ public class Routing {
 			});
 			path("/api/messages", () -> {
 				// update message by id
-				put(new MessagesController().updateMessageById,
-						new Roles[] { Roles.SUPER_ADMIN, Roles.CURRENT_USER });
+				put(new MessagesController().updateMessageById, new Roles[] { Roles.SUPER_ADMIN, Roles.CURRENT_USER });
 				// delete message by id
 				delete(new MessagesController().deleteMessageById,
 						new Roles[] { Roles.SUPER_ADMIN, Roles.CURRENT_USER });

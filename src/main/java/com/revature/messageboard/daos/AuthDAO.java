@@ -306,7 +306,6 @@ public class AuthDAO {
 			}
 		}
 
-		// TODO Auto-generated method stub
 		return Roles.ANYONE;
 	}
 }

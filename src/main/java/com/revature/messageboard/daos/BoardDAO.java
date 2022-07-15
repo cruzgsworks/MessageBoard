@@ -33,21 +33,12 @@ public class BoardDAO implements BoardDAOInterface {
 
 			if (checkBoard.next()) {
 				if (checkBoard.getInt("ct") < 1) {
-					SQL = "WITH Z AS (\r\n"
-							+ "  INSERT INTO messageboard.board(board_name)\r\n"
-							+ "  VALUES (?)\r\n"
-							+ "  RETURNING *\r\n"
-							+ "), Y AS (\r\n"
-							+ "  INSERT INTO messageboard.members(board_id, user_id)\r\n"
-							+ "  SELECT board_id, ?\r\n"
-							+ "  FROM Z\r\n"
-							+ "  RETURNING member_id\r\n"
-							+ "), X AS (\r\n"
+					SQL = "WITH Z AS (\r\n" + "  INSERT INTO messageboard.board(board_name)\r\n" + "  VALUES (?)\r\n"
+							+ "  RETURNING *\r\n" + "), Y AS (\r\n"
+							+ "  INSERT INTO messageboard.members(board_id, user_id)\r\n" + "  SELECT board_id, ?\r\n"
+							+ "  FROM Z\r\n" + "  RETURNING member_id\r\n" + "), X AS (\r\n"
 							+ "INSERT INTO messageboard.member_access(is_admin, is_moderator, is_member, member_id)\r\n"
-							+ "SELECT TRUE, FALSE, FALSE, member_id\r\n"
-							+ "FROM Y\r\n"
-							+ ")\r\n"
-							+ "SELECT * FROM Z";
+							+ "SELECT TRUE, FALSE, FALSE, member_id\r\n" + "FROM Y\r\n" + ")\r\n" + "SELECT * FROM Z";
 
 					ps = conn.prepareStatement(SQL);
 
@@ -62,13 +53,11 @@ public class BoardDAO implements BoardDAOInterface {
 					ArrayList<Board> boards = new ArrayList<Board>();
 					if (insertedRows.next()) {
 
-						Board myboard = new Board(
-								insertedRows.getInt("board_id"),
+						Board myboard = new Board(insertedRows.getInt("board_id"),
 								insertedRows.getString("board_name"));
 						boards.add(myboard);
 
-						return new ResponseDTO(200, "Created a new board and assigned you as the admin.", true,
-								boards);
+						return new ResponseDTO(201, "Created a new board and assigned you as the admin.", true, boards);
 
 //						SQL = "SELECT b.board_id, m.user_id, b.board_name, ma.is_admin, ma.is_moderator, ma.is_member\r\n"
 //								+ "FROM messageboard.board b\r\n"
@@ -118,14 +107,10 @@ public class BoardDAO implements BoardDAOInterface {
 		try (Connection conn = ConnectionUtil.getConnection()) {
 
 			String SQL = "SELECT b.board_id, b.board_name, m.user_id, u.user_name, ma.access_id, ma.is_admin, ma.is_moderator, ma.is_member\r\n"
-					+ "FROM messageboard.board b\r\n"
-					+ "INNER JOIN messageboard.members m ON\r\n"
-					+ "b.board_id = m.board_id\r\n"
-					+ "INNER JOIN messageboard.users u ON\r\n"
-					+ "m.user_id = u.user_id\r\n"
-					+ "INNER JOIN messageboard.member_access ma ON\r\n"
-					+ "m.member_id = ma.member_id\r\n"
-					+ "WHERE m.user_id = ?";
+					+ "FROM messageboard.board b\r\n" + "INNER JOIN messageboard.members m ON\r\n"
+					+ "b.board_id = m.board_id\r\n" + "INNER JOIN messageboard.users u ON\r\n"
+					+ "m.user_id = u.user_id\r\n" + "INNER JOIN messageboard.member_access ma ON\r\n"
+					+ "m.member_id = ma.member_id\r\n" + "WHERE m.user_id = ?";
 
 			// Instantiate a PreparedStatement to fill in the variables (?)
 			PreparedStatement ps = conn.prepareStatement(SQL);
@@ -136,15 +121,9 @@ public class BoardDAO implements BoardDAOInterface {
 
 			ArrayList<BoardMemberAccess> myBoards = new ArrayList<BoardMemberAccess>();
 			while (rs.next()) {
-				BoardMemberAccess board = new BoardMemberAccess(
-						rs.getInt("board_id"),
-						rs.getString("board_name"),
-						rs.getInt("user_id"),
-						rs.getString("user_name"),
-						rs.getInt("access_id"),
-						rs.getBoolean("is_admin"),
-						rs.getBoolean("is_moderator"),
-						rs.getBoolean("is_member"));
+				BoardMemberAccess board = new BoardMemberAccess(rs.getInt("board_id"), rs.getString("board_name"),
+						rs.getInt("user_id"), rs.getString("user_name"), rs.getInt("access_id"),
+						rs.getBoolean("is_admin"), rs.getBoolean("is_moderator"), rs.getBoolean("is_member"));
 				System.out.println(board.toString());
 				myBoards.add(board);
 			}
@@ -172,9 +151,7 @@ public class BoardDAO implements BoardDAOInterface {
 
 			ArrayList<Board> updatedBoards = new ArrayList<Board>();
 			if (rs.next()) {
-				Board updatedBoard = new Board(
-						rs.getInt("board_id"),
-						rs.getString("board_name"));
+				Board updatedBoard = new Board(rs.getInt("board_id"), rs.getString("board_name"));
 				updatedBoards.add(updatedBoard);
 			}
 			return new ResponseDTO(200, "Updated Board", true, updatedBoards);
@@ -199,9 +176,7 @@ public class BoardDAO implements BoardDAOInterface {
 
 			ArrayList<Board> myBoards = new ArrayList<Board>();
 			while (rs.next()) {
-				Board board = new Board(
-						rs.getInt("board_id"),
-						rs.getString("board_name"));
+				Board board = new Board(rs.getInt("board_id"), rs.getString("board_name"));
 //				System.out.println(board.toString());
 				myBoards.add(board);
 			}
@@ -228,9 +203,7 @@ public class BoardDAO implements BoardDAOInterface {
 
 			ArrayList<Board> deletedBoards = new ArrayList<Board>();
 			if (rs.next()) {
-				Board deletedBoard = new Board(
-						rs.getInt("board_id"),
-						rs.getString("board_name"));
+				Board deletedBoard = new Board(rs.getInt("board_id"), rs.getString("board_name"));
 //				System.out.println(board.toString());
 				deletedBoards.add(deletedBoard);
 			}
@@ -245,12 +218,9 @@ public class BoardDAO implements BoardDAOInterface {
 	@Override
 	public Roles checkBoardAccessLevel(String board_name, Users curUser) {
 		try (Connection conn = ConnectionUtil.getConnection()) {
-			String SQL = "SELECT ma.is_admin, ma.is_moderator, ma.is_member \r\n"
-					+ "FROM messageboard.board b\r\n"
-					+ "INNER JOIN messageboard.members m ON\r\n"
-					+ "b.board_id = m.board_id\r\n"
-					+ "INNER JOIN messageboard.member_access ma ON\r\n"
-					+ "m.member_id = ma.member_id\r\n"
+			String SQL = "SELECT ma.is_admin, ma.is_moderator, ma.is_member \r\n" + "FROM messageboard.board b\r\n"
+					+ "INNER JOIN messageboard.members m ON\r\n" + "b.board_id = m.board_id\r\n"
+					+ "INNER JOIN messageboard.member_access ma ON\r\n" + "m.member_id = ma.member_id\r\n"
 					+ "WHERE lower(b.board_name) = ? AND m.user_id = ?";
 			// Instantiate a PreparedStatement to fill in the variables (?)
 			PreparedStatement ps = conn.prepareStatement(SQL);
@@ -350,8 +320,7 @@ public class BoardDAO implements BoardDAOInterface {
 	@Override
 	public int getBoardMemberID(int board_id, int user_id) {
 		try (Connection conn = ConnectionUtil.getConnection()) {
-			String SQL = "SELECT member_id FROM messageboard.members m \r\n"
-					+ "WHERE m.board_id = ? AND m.user_id = ?";
+			String SQL = "SELECT member_id FROM messageboard.members m \r\n" + "WHERE m.board_id = ? AND m.user_id = ?";
 			// Instantiate a PreparedStatement to fill in the variables (?)
 			PreparedStatement ps = conn.prepareStatement(SQL);
 
@@ -378,40 +347,32 @@ public class BoardDAO implements BoardDAOInterface {
 			Board board = this.getBoardByName(pathParam);
 			Users user = new UsersDAO().getUserByUserName(newMember.getUser_name());
 
-			int checkMember = this.getBoardMemberID(board.getBoard_id(), user.getUser_id());
+			if (user != null) {
 
-			if (checkMember < 1) {
-				String SQL = "WITH Y AS (\r\n"
-						+ "  INSERT INTO messageboard.members(board_id, user_id)\r\n"
-						+ "  VALUES (?, ?)\r\n"
-						+ "  RETURNING *\r\n"
-						+ "), X AS (\r\n"
-						+ "INSERT INTO messageboard.member_access(is_admin, is_moderator, is_member, member_id)\r\n"
-						+ "  SELECT FALSE, FALSE, TRUE, member_id\r\n"
-						+ "  FROM Y\r\n"
-						+ "  RETURNING *"
-						+ ") SELECT * FROM X";
-				// Instantiate a PreparedStatement to fill in the variables (?)
-				PreparedStatement ps = conn.prepareStatement(SQL);
+				int checkMember = this.getBoardMemberID(board.getBoard_id(), user.getUser_id());
 
-				ps.setInt(1, board.getBoard_id());
-				ps.setInt(2, user.getUser_id());
+				if (checkMember < 1) {
+					String SQL = "WITH Y AS (\r\n" + "  INSERT INTO messageboard.members(board_id, user_id)\r\n"
+							+ "  VALUES (?, ?)\r\n" + "  RETURNING *\r\n" + "), X AS (\r\n"
+							+ "INSERT INTO messageboard.member_access(is_admin, is_moderator, is_member, member_id)\r\n"
+							+ "  SELECT FALSE, FALSE, TRUE, member_id\r\n" + "  FROM Y\r\n" + "  RETURNING *"
+							+ ") SELECT * FROM X";
+					// Instantiate a PreparedStatement to fill in the variables (?)
+					PreparedStatement ps = conn.prepareStatement(SQL);
 
-				ResultSet rs = ps.executeQuery();
+					ps.setInt(1, board.getBoard_id());
+					ps.setInt(2, user.getUser_id());
 
-				ArrayList<BoardMemberAccess> bmaAL = new ArrayList<BoardMemberAccess>();
-				if (rs.next()) {
-					BoardMemberAccess bma = new BoardMemberAccess(
-							board.getBoard_id(),
-							board.getBoard_name(),
-							user.getUser_id(),
-							user.getUser_name(),
-							rs.getInt("access_id"),
-							rs.getBoolean("is_admin"),
-							rs.getBoolean("is_moderator"),
-							rs.getBoolean("is_member"));
-					bmaAL.add(bma);
-					return new ResponseDTO(200, "Added member successfully", true, bmaAL);
+					ResultSet rs = ps.executeQuery();
+
+					ArrayList<BoardMemberAccess> bmaAL = new ArrayList<BoardMemberAccess>();
+					if (rs.next()) {
+						BoardMemberAccess bma = new BoardMemberAccess(board.getBoard_id(), board.getBoard_name(),
+								user.getUser_id(), user.getUser_name(), rs.getInt("access_id"),
+								rs.getBoolean("is_admin"), rs.getBoolean("is_moderator"), rs.getBoolean("is_member"));
+						bmaAL.add(bma);
+						return new ResponseDTO(200, "Added member successfully", true, bmaAL);
+					}
 				}
 			}
 
@@ -428,14 +389,10 @@ public class BoardDAO implements BoardDAOInterface {
 		try (Connection conn = ConnectionUtil.getConnection()) {
 
 			String SQL = "SELECT b.board_id, b.board_name, m.user_id, u.user_name, ma.access_id, ma.is_admin, ma.is_moderator, ma.is_member\r\n"
-					+ "FROM messageboard.board b\r\n"
-					+ "INNER JOIN messageboard.members m ON\r\n"
-					+ "b.board_id = m.board_id\r\n"
-					+ "INNER JOIN messageboard.users u ON\r\n"
-					+ "m.user_id = u.user_id\r\n"
-					+ "INNER JOIN messageboard.member_access ma ON\r\n"
-					+ "m.member_id = ma.member_id\r\n"
-					+ "WHERE lower(b.board_name) = ?";
+					+ "FROM messageboard.board b\r\n" + "INNER JOIN messageboard.members m ON\r\n"
+					+ "b.board_id = m.board_id\r\n" + "INNER JOIN messageboard.users u ON\r\n"
+					+ "m.user_id = u.user_id\r\n" + "INNER JOIN messageboard.member_access ma ON\r\n"
+					+ "m.member_id = ma.member_id\r\n" + "WHERE lower(b.board_name) = ?";
 
 			// Instantiate a PreparedStatement to fill in the variables (?)
 			PreparedStatement ps = conn.prepareStatement(SQL);
@@ -446,15 +403,9 @@ public class BoardDAO implements BoardDAOInterface {
 
 			ArrayList<BoardMemberAccess> myBMA = new ArrayList<BoardMemberAccess>();
 			while (rs.next()) {
-				BoardMemberAccess curBMA = new BoardMemberAccess(
-						rs.getInt("board_id"),
-						rs.getString("board_name"),
-						rs.getInt("user_id"),
-						rs.getString("user_name"),
-						rs.getInt("access_id"),
-						rs.getBoolean("is_admin"),
-						rs.getBoolean("is_moderator"),
-						rs.getBoolean("is_member"));
+				BoardMemberAccess curBMA = new BoardMemberAccess(rs.getInt("board_id"), rs.getString("board_name"),
+						rs.getInt("user_id"), rs.getString("user_name"), rs.getInt("access_id"),
+						rs.getBoolean("is_admin"), rs.getBoolean("is_moderator"), rs.getBoolean("is_member"));
 				myBMA.add(curBMA);
 			}
 			return new ResponseDTO(200, "Displaying members for " + pathParam + " board", true, myBMA);
@@ -471,14 +422,10 @@ public class BoardDAO implements BoardDAOInterface {
 		try (Connection conn = ConnectionUtil.getConnection()) {
 
 			String SQL = "SELECT b.board_id, b.board_name, m.user_id, u.user_name, ma.access_id, ma.is_admin, ma.is_moderator, ma.is_member\r\n"
-					+ "FROM messageboard.board b\r\n"
-					+ "INNER JOIN messageboard.members m ON\r\n"
-					+ "b.board_id = m.board_id\r\n"
-					+ "INNER JOIN messageboard.users u ON\r\n"
-					+ "m.user_id = u.user_id\r\n"
-					+ "INNER JOIN messageboard.member_access ma ON\r\n"
-					+ "m.member_id = ma.member_id\r\n"
-					+ "WHERE lower(b.board_name) = ? AND lower(u.user_name) = ?";
+					+ "FROM messageboard.board b\r\n" + "INNER JOIN messageboard.members m ON\r\n"
+					+ "b.board_id = m.board_id\r\n" + "INNER JOIN messageboard.users u ON\r\n"
+					+ "m.user_id = u.user_id\r\n" + "INNER JOIN messageboard.member_access ma ON\r\n"
+					+ "m.member_id = ma.member_id\r\n" + "WHERE lower(b.board_name) = ? AND lower(u.user_name) = ?";
 
 			// Instantiate a PreparedStatement to fill in the variables (?)
 			PreparedStatement ps = conn.prepareStatement(SQL);
@@ -488,15 +435,9 @@ public class BoardDAO implements BoardDAOInterface {
 			ResultSet rs = ps.executeQuery();
 
 			if (rs.next()) {
-				BoardMemberAccess curBMA = new BoardMemberAccess(
-						rs.getInt("board_id"),
-						rs.getString("board_name"),
-						rs.getInt("user_id"),
-						rs.getString("user_name"),
-						rs.getInt("access_id"),
-						rs.getBoolean("is_admin"),
-						rs.getBoolean("is_moderator"),
-						rs.getBoolean("is_member"));
+				BoardMemberAccess curBMA = new BoardMemberAccess(rs.getInt("board_id"), rs.getString("board_name"),
+						rs.getInt("user_id"), rs.getString("user_name"), rs.getInt("access_id"),
+						rs.getBoolean("is_admin"), rs.getBoolean("is_moderator"), rs.getBoolean("is_member"));
 				return curBMA;
 			}
 
@@ -585,7 +526,7 @@ public class BoardDAO implements BoardDAOInterface {
 			System.err.println("deleteMember() failed");
 			e.printStackTrace();
 		}
-		// TODO Auto-generated method stub
+
 		return new ResponseDTO(200, "Failed to delete member", false, null);
 	}
 
