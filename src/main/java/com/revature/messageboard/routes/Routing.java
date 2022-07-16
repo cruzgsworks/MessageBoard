@@ -26,8 +26,6 @@ public class Routing {
 		// Instance of Javalin
 		this.app = Javalin.create(config -> {
 			config.enableCorsForAllOrigins();
-			// config.registerPlugin(new RouteOverviewPlugin("/routes"));
-			// config.addStaticFiles("/public", Location.CLASSPATH);
 			config.accessManager((handler, ctx, routeRoles) -> {
 				Roles role = new AuthDAO().checkAuthToken(ctx);
 				System.out.println("Given role = " + role.name());
@@ -46,9 +44,6 @@ public class Routing {
 		}).start(8080);
 
 		this.app.routes(() -> {
-//			path("/", () -> {
-//				get(Path.Web.INDEX, new ViewsController().serveIndexPage, Roles.CURRENT_USER);
-//			});
 			path("/api/superadmin", () -> {
 				// For initial setup on demo. This handler should not exist
 				post(new UsersController().createSuperAdmin, Roles.ANYONE);
