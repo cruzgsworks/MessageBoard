@@ -17,7 +17,6 @@ public class AuthController {
 
 		AuthDAO auth = new AuthDAO();
 		Users requestBody = gson.fromJson(ctx.body(), Users.class);
-		// System.out.println(requestBody.getUser_name());
 
 		ResponseDTO doLogin = auth.doLogin(requestBody);
 		String output = gson.toJson(doLogin);

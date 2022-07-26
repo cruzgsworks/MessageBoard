@@ -31,7 +31,7 @@ public class MessagesDAO implements MessagesInterface {
 			// Instantiate a PreparedStatement to fill in the variables (?)
 			PreparedStatement ps = conn.prepareStatement(SQL);
 
-			ps.setTimestamp(1, new Timestamp((System.currentTimeMillis())));
+			ps.setTimestamp(1, new Timestamp(System.currentTimeMillis()));
 			ps.setString(2, requestBody.getMessage_content());
 			ps.setInt(3, new BoardDAO().getBoardByName(board_name).getBoard_id());
 			ps.setInt(4, curUser.getUser_id());

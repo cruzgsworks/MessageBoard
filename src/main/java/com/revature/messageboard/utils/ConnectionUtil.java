@@ -27,7 +27,7 @@ public class ConnectionUtil {
 
 		// I'm going to put the credentials in Strings, and use those strings in a
 		// method that gets connections
-		String url = "jdbc:postgresql://127.0.0.1:5432/gerard?currentSchema=messageboard";
+		String url = "jdbc:postgresql://127.0.0.1:5432/postgres?currentSchema=messageboard";
 		String username = "postgres";
 		String password = "revature2022";
 

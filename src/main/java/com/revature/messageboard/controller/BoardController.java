@@ -22,8 +22,6 @@ public class BoardController {
 		Board requestBody = gson.fromJson(ctx.body(), Board.class);
 		Users curUser = new UsersDAO().getUserByAuthToken(ctx.cookie("user_auth_token"));
 
-		// System.out.println(requestBody.toString());
-
 		ResponseDTO createBoard = boardDAO.createBoard(requestBody, curUser);
 		String output = gson.toJson(createBoard);
 
