@@ -1,0 +1,1726 @@
+{
+	"info": {
+		"_postman_id": "69d8dc8d-a6ff-4e4e-a307-9a3f72a65501",
+		"name": "Project Zero",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21644373"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Create Super Admin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_name\": \"gerardcruz\",\r\n    \"user_pass\": \"gerardcruz2022\",\r\n    \"user_first_name\": \"Gerard\",\r\n    \"user_last_name\": \"Cruz\",\r\n    \"user_email\": \"gerard984@revature.net\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "cruzgsworks.local:8080/api/superadmin",
+							"host": [
+								"cruzgsworks",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"superadmin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Info - Gerard Cruz",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "cruzgsworks.local:8080/api/users/gerardcruz",
+							"host": [
+								"cruzgsworks",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users",
+								"gerardcruz"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login as Super Admin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_name\": \"gerardcruz\",\r\n    \"user_pass\": \"gerardcruz2022\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "cruzgsworks.local:8080/api/login",
+							"host": [
+								"cruzgsworks",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create New User for Superadmin Role- Luke Skywalker",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_name\": \"lukeskywalker\",\r\n    \"user_pass\": \"lukeskywalker2022\",\r\n    \"user_first_name\": \"Luke\",\r\n    \"user_last_name\": \"Skywalker\",\r\n    \"user_email\": \"lukeskywalker@email.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "cruzgsworks.local:8080/api/users",
+							"host": [
+								"cruzgsworks",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update to Super Admin",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_name\": \"lukeskywalker\",\r\n    \"user_pass\": \"lukeskywalker2022\",\r\n    \"user_first_name\": \"Luke\",\r\n    \"user_last_name\": \"Skywalker\",\r\n    \"user_email\": \"lukeskywalker@email.com\",\r\n    \"is_superadmin\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "cruzgsworks.local:8080/api/superadmin",
+							"host": [
+								"cruzgsworks",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"superadmin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Info - Gerard Cruz",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "cruzgsworks.local:8080/api/users/gerardcruz",
+							"host": [
+								"cruzgsworks",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users",
+								"gerardcruz"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Info - Luke Skywalker",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "cruzgsworks.local:8080/api/users/lukeskywalker",
+							"host": [
+								"cruzgsworks",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users",
+								"lukeskywalker"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create New User - John Doe",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_name\": \"johndoe\",\r\n    \"user_pass\": \"johndoe2022\",\r\n    \"user_first_name\": \"John\",\r\n    \"user_last_name\": \"Doe\",\r\n    \"user_email\": \"johndoe@email.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "cruzgsworks.local:8080/api/users",
+							"host": [
+								"cruzgsworks",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create New User - Mary Jane",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_name\": \"maryjane\",\r\n    \"user_pass\": \"maryjane2022\",\r\n    \"user_first_name\": \"Mary\",\r\n    \"user_last_name\": \"Jane\",\r\n    \"user_email\": \"maryjane@email.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "cruzgsworks.local:8080/api/users",
+							"host": [
+								"cruzgsworks",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create New User -  Nikola Tesla",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_name\": \"nikolatesla\",\r\n    \"user_pass\": \"nikolatesla2022\",\r\n    \"user_first_name\": \"Nikola\",\r\n    \"user_last_name\": \"Tesla\",\r\n    \"user_email\": \"nikolatesla@email.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "cruzgsworks.local:8080/api/users",
+							"host": [
+								"cruzgsworks",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create New User - Charlie Brown",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_name\": \"charliebrown\",\r\n    \"user_pass\": \"charliebrown2022\",\r\n    \"user_first_name\": \"Charlie\",\r\n    \"user_last_name\": \"Brown\",\r\n    \"user_email\": \"charliebrown@email.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "cruzgsworks.local:8080/api/users",
+							"host": [
+								"cruzgsworks",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login as  Mary Jane",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_name\": \"maryjane\",\r\n    \"user_pass\": \"maryjane2022\"\r\n}"
+						},
+						"url": {
+							"raw": "cruzgsworks.local:8080/api/login",
+							"host": [
+								"cruzgsworks",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Info - John Doe",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "cruzgsworks.local:8080/api/users/johndoe",
+							"host": [
+								"cruzgsworks",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users",
+								"johndoe"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Info - Mary Jane",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "cruzgsworks.local:8080/api/users/maryjane",
+							"host": [
+								"cruzgsworks",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users",
+								"maryjane"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login as Charlie Brown",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_name\": \"charliebrown\",\r\n    \"user_pass\": \"charliebrown2022\"\r\n}"
+						},
+						"url": {
+							"raw": "cruzgsworks.local:8080/api/login",
+							"host": [
+								"cruzgsworks",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Info - Charlie Brown",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "cruzgsworks.local:8080/api/users/charliebrown",
+							"host": [
+								"cruzgsworks",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users",
+								"charliebrown"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Charlie Brown",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_name\": \"aceventura\",\r\n    \"user_pass\": \"aceventura2022\",\r\n    \"user_first_name\": \"Ace\",\r\n    \"user_last_name\": \"Ventura\",\r\n    \"user_email\" : \"aceventura@email.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "cruzgsworks.local:8080/api/users/charliebrown",
+							"host": [
+								"cruzgsworks",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users",
+								"charliebrown"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login as Ace Ventura",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_name\": \"aceventura\",\r\n    \"user_pass\": \"aceventura2022\"\r\n}"
+						},
+						"url": {
+							"raw": "cruzgsworks.local:8080/api/login",
+							"host": [
+								"cruzgsworks",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User - Ace Ventura",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "cruzgsworks.local:8080/api/users/aceventura",
+							"host": [
+								"cruzgsworks",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users",
+								"aceventura"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login as Super Admin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_name\": \"gerardcruz\",\r\n    \"user_pass\": \"gerardcruz2022\"\r\n}"
+						},
+						"url": {
+							"raw": "cruzgsworks.local:8080/api/login",
+							"host": [
+								"cruzgsworks",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Info - Ace Ventura",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "cruzgsworks.local:8080/api/users/aceventura",
+							"host": [
+								"cruzgsworks",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users",
+								"aceventura"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Board",
+			"item": [
+				{
+					"name": "Login as John Doe",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_name\": \"johndoe\",\r\n    \"user_pass\": \"johndoe2022\"\r\n}"
+						},
+						"url": {
+							"raw": "cruzgsworks.local:8080/api/login",
+							"host": [
+								"cruzgsworks",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create New Board - Apple",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"board_name\" : \"Apple\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "cruzgsworks.local:8080/api/board",
+							"host": [
+								"cruzgsworks",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"board"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create New Board - Google",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"board_name\" : \"Google\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "cruzgsworks.local:8080/api/board",
+							"host": [
+								"cruzgsworks",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"board"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create New Board - Meta",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"board_name\" : \"Meta\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "cruzgsworks.local:8080/api/board",
+							"host": [
+								"cruzgsworks",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"board"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All My Boards",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "cruzgsworks.local:8080/api/board",
+							"host": [
+								"cruzgsworks",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"board"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login as Mary Jane",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_name\": \"maryjane\",\r\n    \"user_pass\": \"maryjane2022\"\r\n}"
+						},
+						"url": {
+							"raw": "cruzgsworks.local:8080/api/login",
+							"host": [
+								"cruzgsworks",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create New Board - Netflix",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"board_name\" : \"Netflix\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "cruzgsworks.local:8080/api/board",
+							"host": [
+								"cruzgsworks",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"board"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All My Boards",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "cruzgsworks.local:8080/api/board",
+							"host": [
+								"cruzgsworks",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"board"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login as John Doe",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_name\": \"johndoe\",\r\n    \"user_pass\": \"johndoe2022\"\r\n}"
+						},
+						"url": {
+							"raw": "cruzgsworks.local:8080/api/login",
+							"host": [
+								"cruzgsworks",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change Board Name Google to Alphabet",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"board_name\" : \"Alphabet\"\r\n}"
+						},
+						"url": {
+							"raw": "cruzgsworks.local:8080/api/board/google",
+							"host": [
+								"cruzgsworks",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"board",
+								"google"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Board - Meta",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "cruzgsworks.local:8080/api/board/Meta",
+							"host": [
+								"cruzgsworks",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"board",
+								"Meta"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All My Boards",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "cruzgsworks.local:8080/api/board",
+							"host": [
+								"cruzgsworks",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"board"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login as Super Admin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_name\": \"gerardcruz\",\r\n    \"user_pass\": \"gerardcruz2022\"\r\n}"
+						},
+						"url": {
+							"raw": "cruzgsworks.local:8080/api/login",
+							"host": [
+								"cruzgsworks",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Existing Boards",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "cruzgsworks.local:8080/api/superadmin/boards",
+							"host": [
+								"cruzgsworks",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"superadmin",
+								"boards"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login as John Doe",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_name\": \"johndoe\",\r\n    \"user_pass\": \"johndoe2022\"\r\n}"
+						},
+						"url": {
+							"raw": "cruzgsworks.local:8080/api/login",
+							"host": [
+								"cruzgsworks",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add member to Board Apple (Mary Jane)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_name\" : \"maryjane\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "cruzgsworks.local:8080/api/board/members/apple",
+							"host": [
+								"cruzgsworks",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"board",
+								"members",
+								"apple"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add member to Board Apple (Ace Ventura)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_name\" : \"aceventura\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "cruzgsworks.local:8080/api/board/members/apple",
+							"host": [
+								"cruzgsworks",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"board",
+								"members",
+								"apple"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add member to Board Apple (Nikola Tesla)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_name\" : \"nikolatesla\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "cruzgsworks.local:8080/api/board/members/apple",
+							"host": [
+								"cruzgsworks",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"board",
+								"members",
+								"apple"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login as Mary Jane",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_name\": \"maryjane\",\r\n    \"user_pass\": \"maryjane2022\"\r\n}"
+						},
+						"url": {
+							"raw": "cruzgsworks.local:8080/api/login",
+							"host": [
+								"cruzgsworks",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All My Boards",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "cruzgsworks.local:8080/api/board",
+							"host": [
+								"cruzgsworks",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"board"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Members of Board - Apple",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "cruzgsworks.local:8080/api/board/members/apple",
+							"host": [
+								"cruzgsworks",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"board",
+								"members",
+								"apple"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login as John Doe",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_name\": \"johndoe\",\r\n    \"user_pass\": \"johndoe2022\"\r\n}"
+						},
+						"url": {
+							"raw": "cruzgsworks.local:8080/api/login",
+							"host": [
+								"cruzgsworks",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Access Levels - Apple - Nikola Tesla",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"is_moderator\" : true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "cruzgsworks.local:8080/api/board/member/apple/nikolatesla",
+							"host": [
+								"cruzgsworks",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"board",
+								"member",
+								"apple",
+								"nikolatesla"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Access Level Info - Apple - Nikola Tesla",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "cruzgsworks.local:8080/api/board/member/apple/nikolatesla",
+							"host": [
+								"cruzgsworks",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"board",
+								"member",
+								"apple",
+								"nikolatesla"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login as Mary Jane",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_name\": \"maryjane\",\r\n    \"user_pass\": \"maryjane2022\"\r\n}"
+						},
+						"url": {
+							"raw": "cruzgsworks.local:8080/api/login",
+							"host": [
+								"cruzgsworks",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Member - Apple - John Doe",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "cruzgsworks.local:8080/api/board/member/apple/johndoe",
+							"host": [
+								"cruzgsworks",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"board",
+								"member",
+								"apple",
+								"johndoe"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login as John Doe",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_name\": \"johndoe\",\r\n    \"user_pass\": \"johndoe2022\"\r\n}"
+						},
+						"url": {
+							"raw": "cruzgsworks.local:8080/api/login",
+							"host": [
+								"cruzgsworks",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Member - Apple - Mary Jane",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "cruzgsworks.local:8080/api/board/member/apple/maryjane",
+							"host": [
+								"cruzgsworks",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"board",
+								"member",
+								"apple",
+								"maryjane"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add member to Board Apple (Mary Jane)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_name\" : \"maryjane\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "cruzgsworks.local:8080/api/board/members/apple",
+							"host": [
+								"cruzgsworks",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"board",
+								"members",
+								"apple"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Messages",
+			"item": [
+				{
+					"name": "Login as John Doe (Admin of Board Apple)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_name\": \"johndoe\",\r\n    \"user_pass\": \"johndoe2022\"\r\n}"
+						},
+						"url": {
+							"raw": "cruzgsworks.local:8080/api/login",
+							"host": [
+								"cruzgsworks",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post Message in Apple",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"message_content\" : \"Big Brown Fox Jumps Over The Lazy Dog\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "cruzgsworks.local:8080/api/messages/apple",
+							"host": [
+								"cruzgsworks",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"messages",
+								"apple"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post Message in Apple",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"message_content\" : \"They became the first naturalists to describe several animals, including the coyote, kit fox, Oregon bobcat and the wolf of the plains.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "cruzgsworks.local:8080/api/messages/apple",
+							"host": [
+								"cruzgsworks",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"messages",
+								"apple"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login as Nikola Tesla (Moderator of Board Apple)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_name\": \"nikolatesla\",\r\n    \"user_pass\": \"nikolatesla2022\"\r\n}"
+						},
+						"url": {
+							"raw": "cruzgsworks.local:8080/api/login",
+							"host": [
+								"cruzgsworks",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post Message in Apple",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"message_content\" : \"Now, when I say fox hunting I mean the dog and mounted gentry type of hunt.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "cruzgsworks.local:8080/api/messages/apple",
+							"host": [
+								"cruzgsworks",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"messages",
+								"apple"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login as Mary Jane (Member of Board Apple)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_name\": \"maryjane\",\r\n    \"user_pass\": \"maryjane2022\"\r\n}"
+						},
+						"url": {
+							"raw": "cruzgsworks.local:8080/api/login",
+							"host": [
+								"cruzgsworks",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post Message in Apple",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"message_content\" : \"Pet owners blessed with common sense may point out that one of the primary reasons for owning a dog is that all concerned can enjoy walkies.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "cruzgsworks.local:8080/api/messages/apple",
+							"host": [
+								"cruzgsworks",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"messages",
+								"apple"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "View all messages - Apple",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "cruzgsworks.local:8080/api/messages/apple",
+							"host": [
+								"cruzgsworks",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"messages",
+								"apple"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Simple Wildcard Search in Apple (Fox & Dog)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "cruzgsworks.local:8080/api/messages/search/apple?content=fox dog",
+							"host": [
+								"cruzgsworks",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"messages",
+								"search",
+								"apple"
+							],
+							"query": [
+								{
+									"key": "content",
+									"value": "fox dog"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Simple Wildcard Search in Apple (Walkies)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "cruzgsworks.local:8080/api/messages/search/apple?content=walkies",
+							"host": [
+								"cruzgsworks",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"messages",
+								"search",
+								"apple"
+							],
+							"query": [
+								{
+									"key": "content",
+									"value": "walkies"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Message by ID",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"message_id\": 4,\r\n    \"message_content\": \"But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "cruzgsworks.local:8080/api/messages",
+							"host": [
+								"cruzgsworks",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"messages"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login as Nikola Tesla (Moderator)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_name\": \"nikolatesla\",\r\n    \"user_pass\": \"nikolatesla2022\"\r\n}"
+						},
+						"url": {
+							"raw": "cruzgsworks.local:8080/api/login",
+							"host": [
+								"cruzgsworks",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Message by ID",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"message_id\": 4,\r\n    \"message_content\": \"A moderator has updated this message\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "cruzgsworks.local:8080/api/messages",
+							"host": [
+								"cruzgsworks",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"messages"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "View all messages - Apple",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "cruzgsworks.local:8080/api/messages/apple",
+							"host": [
+								"cruzgsworks",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"messages",
+								"apple"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Message By ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "cruzgsworks.local:8080/api/messages?id=4",
+							"host": [
+								"cruzgsworks",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"messages"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
